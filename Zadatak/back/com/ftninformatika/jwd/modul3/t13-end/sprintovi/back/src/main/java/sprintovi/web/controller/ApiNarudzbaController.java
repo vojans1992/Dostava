@@ -80,7 +80,7 @@ public class ApiNarudzbaController {
 		return new ResponseEntity<>(toDto.convert(persisted), HttpStatus.OK);
 	}
 	
-	@DeleteMapping("{/id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<NarudzbaDto> delete (@PathVariable Long id){
 		Narudzba deleted = narudzbaService.delete(id);
 		
@@ -90,10 +90,10 @@ public class ApiNarudzbaController {
 		return new ResponseEntity<>(toDto.convert(deleted),HttpStatus.OK);
 	}
 	
-	@PostMapping("{/id}")
+	@PostMapping("/{id}/kreiraj")
 	public ResponseEntity<NarudzbaDto> kreiraj(@PathVariable Long id){
 		Optional<Narudzba> narudzba = narudzbaService.one(id);
-		if(narudzba.isPresent()) {
+		if(!narudzba.isPresent()) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 		if(narudzba.get().getRacun() == null ) {

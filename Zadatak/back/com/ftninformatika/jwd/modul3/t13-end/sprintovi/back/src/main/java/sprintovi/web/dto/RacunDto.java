@@ -8,7 +8,7 @@ public class RacunDto {
 	private int broj;
 	private String datum;
 	private Double ukupno;
-	private Narudzba narudzba;
+	private NarudzbaDto narudzbaDto;
 	public RacunDto() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -37,11 +37,11 @@ public class RacunDto {
 	public void setUkupno(Double ukupno) {
 		this.ukupno = ukupno;
 	}
-	public Narudzba getNarudzba() {
-		return narudzba;
+	public NarudzbaDto getNarudzbaDto() {
+		return narudzbaDto;
 	}
-	public void setNarudzba(Narudzba narudzba) {
-		this.narudzba = narudzba;
+	public void setNarudzbaDto(NarudzbaDto narudzbaDto) {
+		this.narudzbaDto = narudzbaDto;
 	}
 	
 	

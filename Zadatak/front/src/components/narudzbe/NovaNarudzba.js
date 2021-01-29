@@ -86,6 +86,7 @@ class NovaNarudzba extends React.Component {
 
       async doAdd() {
         //dodaje nov entitet http metodom post, salje entitet koji ima atribute dto klase na backu
+        console.log(this.state.narudzba)
         try {
           await SprintsAxios.post("/narudzbe/", this.state.narudzba);
             
@@ -96,7 +97,7 @@ class NovaNarudzba extends React.Component {
         }
       }
 
-      valueInputChange(event) {
+      addValueInputChange(event) {
         let control = event.target;
     
         let name = control.name;

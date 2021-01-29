@@ -14,6 +14,7 @@ import Login from "./components/authentication/Login";
 import { logout } from "./services/auth";
 import Narudzbe from "./components/narudzbe/Narudzbe";
 import NovaNarudzba from "./components/narudzbe/NovaNarudzba";
+import Racun from "./components/narudzbe/Racuni";
 
 class App extends React.Component {
   render() {
@@ -48,6 +49,7 @@ class App extends React.Component {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/narudzbe" component={Narudzbe} />
                 <Route exact path="/narudzbe/add/:id" component={NovaNarudzba} />
+                <Route exact path="/racuni/:id" component={Racun} />
                 <Route exact path="/login">
                   <Redirect to="/"></Redirect>
                 </Route>

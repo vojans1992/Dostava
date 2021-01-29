@@ -107,6 +107,10 @@ class Narudzbe extends React.Component {
     this.props.history.push("/narudzbe/add/" + narudzbaId);
   }
 
+  goToRacun(narudzbaId) {
+    this.props.history.push("/racuni/" + narudzbaId);
+  }
+
   
 
   async doDelete(narudzbaId) {
@@ -144,7 +148,7 @@ class Narudzbe extends React.Component {
   async kreiraj(id) {
     //metoda za menjanje stanja(u zadatku sa sprintovima (nov, u toku, zavrsen) pa se koristi http metoda post za izmenu postojeceg entiteta) pa se ponovo uzimaju svi entiteti sa promenjenim
     try {
-      await SprintsAxios.post(`/narudzba/${id}/kreiraj`);
+      await SprintsAxios.post(`/narudzbe/${id}/kreiraj`);
       this.getNarudzbe();
     } catch (error) {
       alert("Nije moguće promeniti stanje.");
@@ -208,6 +212,13 @@ class Narudzbe extends React.Component {
           >
             Sledeća
           </Button>
+          <Button
+            variant="warning"
+            onClick={() => this.goToAdd()}
+            style={{ marginLeft: 5 }}
+          >
+            Dodaj
+          </Button>
         </ButtonGroup>
 
         <Table bordered striped style={{ marginTop: 5 }}>
@@ -240,15 +251,13 @@ class Narudzbe extends React.Component {
                     >
                       Kreiraj 
                     </Button>
-
                     <Button
-                      variant="warning"
-                      onClick={() => this.goToAdd(narudzba.id)}
-                      style={{ marginLeft: 5 }}
+                      //disabled={narudzba.id === 3}
+                      variant="info"
+                      onClick={() => this.goToRacun(narudzba.id)}
                     >
-                      Dodaj
+                      Racun 
                     </Button>
-
                     <Button
                       variant="danger"
                       onClick={() => this.doDelete(narudzba.id)}
